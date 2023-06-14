@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+ body {
+  font-family: "Helvetica", Arial, sans-serif;
+}
+
+.even-row {
+  background-color: #fff; /* white */
+}
+
+.odd-row {
+  background-color: #f5f5f5; /* light gray */
+}
