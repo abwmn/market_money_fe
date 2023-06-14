@@ -1,3 +1,35 @@
-<% @markets.each do |market| %>
-  <%= market.name %>
-<%end%>
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  table {
+    margin-top: 20px;
+    width: 70%;
+  }
+</style>
+<div class="container">
+  <h1>Markets</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>City</th>
+        <th>State</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @markets.each_with_index do |market, index| %>
+        <tr class="<%= index.even? ? 'even-row' : 'odd-row' %>">
+          <td><%= market["attributes"]["name"] %></td>
+          <td><%= market["attributes"]["city"] %></td>
+          <td><%= market["attributes"]["state"] %></td>
+          <td><%= link_to 'More Info', market_path(market["id"]) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

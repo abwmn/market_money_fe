@@ -1,13 +1,18 @@
 class MarketsController < ApplicationController
-  # before_action :service
+  before_action :service
 
   def index
-    @markets = MarketService.markets
+    @markets = @service.markets["data"]
+  end
+
+  def show
+    @market = @service.get_market(params[:id])
+    @vendors = @service.market_vendors(params[:id])
   end
 
   private
   
-  # def service
-  #   @_service ||= MarketService.new
-  # end
+  def service
+    @service ||= BackendService.new
+  end
 end

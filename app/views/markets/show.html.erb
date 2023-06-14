@@ -1,0 +1,12 @@
+<h1><%= @market["data"]["attributes"]["name"] %></h1>
+<p>Address: <%= @market["data"]["attributes"]["street"] %>, 
+<%= @market["data"]["attributes"]["city"] %>, 
+<%= @market["data"]["attributes"]["state"] %>, 
+<%= @market["data"]["attributes"]["zip"] %></p>
+
+<h2>Vendors</h2>
+<ul>
+  <% @vendors["data"].each do |vendor| %>
+    <li><%= link_to vendor["attributes"]["name"], vendor_path(vendor["id"]) %></li>
+  <% end %>
+</ul>
